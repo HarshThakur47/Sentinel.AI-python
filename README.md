@@ -37,21 +37,11 @@ abstractions and a Hugging Face embedding model instead of Gemini.
 5. **Docs**: FastAPI auto-generates interactive Swagger docs at `/docs` — nothing
    to write by hand.
 
-## What's not included (scope was 2 days)
-
-- SSE streaming (`/query/stream` in the original) — the standard `/query`
-  endpoint is ported; streaming would be a follow-up using FastAPI's
-  `StreamingResponse`.
-- Document ingestion endpoint (`documentController.js`) — `upsert_documents()`
-  exists in `vectorstore.py` as the building block, but no route calls it yet.
-- Rate limiting is wired via `slowapi` but not yet attached to specific routes
-  (the Node version used `express-rate-limit` on all routes by default).
-
 ## Setup
 
 ```bash
 # 1. Create virtual environment
-python3 -m venv venv
+python3 -m venv venv       # py -m venv venv 
 source venv/bin/activate   # Windows: venv\Scripts\activate
 
 # 2. Install dependencies
